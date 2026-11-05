@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Lead Tracker</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">L</div>
+      <div class="brand-copy">
+        <h1>Lead Tracker</h1>
+        <p>Keep useful opportunities close.</p>
+      </div>
+      <span class="version">2.0</span>
+    </header>
+
+    <section class="capture" aria-label="Save a lead">
+      <label class="field-label" for="input-el">Website or lead URL</label>
+      <input id="input-el" type="url" inputmode="url" placeholder="https://example.com/opportunity" autocomplete="url" spellcheck="false">
+      <div class="actions">
+        <button id="input-btn" class="button button-primary" type="button">Save lead</button>
+        <button id="tab-btn" class="button button-secondary" type="button"><span aria-hidden="true">＋</span> Save current tab</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="leads-section" aria-label="Saved leads">
+      <div class="section-heading">
+        <div>
+          <h2>Your leads</h2>
+          <p id="lead-count">0 saved</p>
+        </div>
+        <div class="toolbar">
+          <button id="export-btn" class="icon-button" type="button" title="Export leads" aria-label="Export leads">↓</button>
+          <button id="import-btn" class="icon-button" type="button" title="Import leads" aria-label="Import leads">↑</button>
+          <input id="import-file" type="file" accept="application/json,.json" hidden>
+          <button id="delete-btn" class="text-button" type="button">Clear all</button>
+        </div>
+      </div>
+
+      <label class="search-wrap" for="search-el">
+        <span aria-hidden="true">⌕</span>
+        <input id="search-el" type="search" placeholder="Search saved leads..." autocomplete="off">
+      </label>
+
+      <ul id="ul-el" class="lead-list" aria-live="polite"></ul>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">↗</div>
+        <strong>No leads saved yet</strong>
+        <p>Paste a link above or save the page you're viewing.</p>
+      </div>
+      <p class="privacy-note"><span aria-hidden="true">🔒</span> Your leads are stored locally in Chrome.</p>
+    </section>
+  </main>
+  <script src="index.js"></script>
+</body>
+</html>
